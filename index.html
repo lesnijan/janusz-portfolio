@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janusz Leśniewicz - Solution Architect & Integrator</title>
+    <meta name="description" content="Portfolio Janusza Leśniewicza - Architekta Rozwiązań i Specjalisty ds. Integracji Danych (Pełne CV)">
+    
+    <!-- Tailwind CSS (Framework do stylizacji) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfiguracja kolorów i czcionek -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-dark': '#0f172a',    /* Ciemny granat tła */
+                        'brand-blue': '#3b82f6',    /* Nowoczesny niebieski */
+                        'brand-accent': '#0ea5e9',  /* Jasny błękit akcentów */
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Style dodatkowe -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        
+        /* Ikony SVG */
+        .icon { width: 1.25em; height: 1.25em; display: inline-block; vertical-align: text-bottom; }
+        
+        /* Styl dla sekcji CV - Timeline */
+        .cv-item { 
+            position: relative;
+            padding-bottom: 2.5rem; /* Zwiększony odstęp */
+        }
+        .cv-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #cbd5e1; /* slate-300 */
+        }
+        .cv-item:last-child::before {
+            height: 1.5rem; /* skrócenie linii dla ostatniego elementu */
+        }
+        .cv-dot {
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 9999px;
+            background-color: #3b82f6; /* brand-blue */
+            border: 3px solid #f8fafc; /* body background */
+        }
+        .cv-dot.past {
+            background-color: #94a3b8; /* slate-400 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- GŁÓWNY KONTENER -->
+    <div class="max-w-6xl mx-auto min-h-screen bg-white shadow-2xl my-0 sm:my-8 rounded-none sm:rounded-2xl overflow-hidden flex flex-col">
+
+        <!-- HEADER / WIZYTÓWKA -->
+        <header class="bg-brand-dark text-white p-8 sm:p-12 relative overflow-hidden">
+            <!-- Dekoracyjne tło -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div class="relative z-10">
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2">Janusz Leśniewicz</h1>
+                <h2 class="text-xl sm:text-2xl text-brand-accent font-medium mb-6">
+                    Solution Architect & Data Integrator | Data Engineering & Observability Specialist
+                </h2>
+                <p class="text-slate-300 max-w-2xl text-lg leading-relaxed mb-8">
+                    Data Professional z 20+ latami doświadczenia, specjalizujący się w projektowaniu skalowalnych systemów decyzyjnych Real-Time, zaawansowanym **Data Engineeringu** (Python, Kafka) oraz architekturach integracyjnych dla środowisk Mission-Critical.
+                </p>
+                
+                <!-- Dane kontaktowe -->
+                <div class="flex flex-wrap gap-4 text-sm font-semibold">
+                    <a href="mailto:lesnijan@gmail.com" class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        lesnijan@gmail.com
+                    </a>
+                    <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9l3 3m0 0l-3 3m3-3h-3"></path></svg>
+                        +48 501 56 47 42
+                    </span>
+                    <a href="http://wwww.linkedin.com/in/janusz-lesniewicz" target="_blank" class="flex items-center gap-2 bg-brand-blue px-4 py-2 rounded-full hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">
+                        <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-grow">
+            
+            <!-- SEKCJA 1: FEATURED ARCHITECTURE (STUDIUM PRZYPADKU) -->
+            <section class="p-6 sm:p-10 bg-slate-50 border-b border-slate-200">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="bg-brand-blue text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Featured Project</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">Architektura Decyzyjna Real-Time</h2>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <!-- Opis problemu -->
+                    <div class="p-6 border-b border-slate-100">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Projekt: System Oceny Obciążenia Magazynu (Cutoff Time)</h3>
+                        <p class="text-slate-600">
+                            Zaprojektowanie mechanizmu, który automatycznie ocenia obciążenie magazynu w czasie rzeczywistym i wskazuje moment graniczny (Cutoff Time) dla wysyłek "na dziś".
+                        </p>
+                    </div>
+
+                    <!-- Schemat Rozwiązania (3 Filary) -->
+                    <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                        <!-- Filar 1: Core -->
+                        <div class="p-6 hover:bg-slate-50 transition">
+                            <div class="flex items-center gap-2 mb-3 text-brand-blue">
+                                <svg class="icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m-4-7h20"></path></svg>
+                                <span class="font-bold text-sm uppercase">Rdzeń Obliczeniowy</span>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-2">Zaawansowany SQL/Bazy Danych</h4>
+                            <p class="text-sm text-slate-600 mb-3">Implementacja krytycznych algorytmów obciążenia bezpośrednio w bazie danych (np. Oracle, PostgreSQL).</p>
+                            <ul class="text-xs text-slate-500 space-y-1 list-disc list-inside">
+                                <li>Optymalizacja zapytań **PL/SQL, T-SQL**</li>
+                                <li>Mechanizmy **Trigger & Stored Procedures**</li>
+                                <li>Latencja rzędu milisekund</li>
+                            </ul>
+                        </div>
+
+                        <!-- Filar 2: API -->
+                        <div class="p-6 hover:bg-slate-50 transition">
+                            <div class="flex items-center gap-2 mb-3 text-brand-blue">
+                                <svg class="icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                <span class="font-bold text-sm uppercase">API Decyzyjne</span>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-2">Python (Mikroserwis)</h4>
+                            <p class="text-sm text-slate-600 mb-3">Mikroserwis wystawiający wynik Cutoff Time dla systemów zewnętrznych.</p>
+                            <ul class="text-xs text-slate-500 space-y-1 list-disc list-inside">
+                                <li>Python (Flask/FastAPI)</li>
+                                <li>Zarządzanie środowiskiem wykonawczym (**Kubernetes/Docker**)</li>
+                                <li>Projektowanie **Rest API**</li>
+                            </ul>
+                        </div>
+
+                        <!-- Filar 3: Monitoring -->
+                        <div class="p-6 hover:bg-slate-50 transition">
+                            <div class="flex items-center gap-2 mb-3 text-brand-blue">
+                                <svg class="icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                <span class="font-bold text-sm uppercase">Observability</span>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-2">Kafka + OpenSearch + Grafana</h4>
+                            <p class="text-sm text-slate-600 mb-3">Monitoring operacyjny, agregacja logów i metryk oraz alertowanie w czasie rzeczywistym.</p>
+                            <ul class="text-xs text-slate-500 space-y-1 list-disc list-inside">
+                                <li>**Event-Driven Architecture (Kafka)**</li>
+                                <li>Agregacja logów w **OpenSearch**</li>
+                                <li>Dashboardy operacyjne w **Grafana**</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Unikalna Wartość -->
+                    <div class="bg-brand-dark p-6 text-white">
+                        <h4 class="font-bold text-brand-accent mb-2">Moja Unikalna Wartość Architekta:</h4>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="flex gap-3">
+                                <svg class="icon text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <p>Wykorzystanie **Dogłębnej Znajomości SQL/DBA** do optymalizacji Core Logic, zamiast polegania na zewnętrznych platformach decyzyjnych.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <svg class="icon text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <p>Wdrożenie pełnego stosu **Observability** (Kafka/OpenSearch/Grafana) zamiast ograniczania się do statycznego raportowania.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEKCJA 2: KOMPETENCJE TECHNICZNE -->
+            <section class="p-6 sm:p-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                    <svg class="icon text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    Kluczowe Obszary Ekspertyzy
+                </h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Karta 1 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition border-t-4 border-t-brand-blue">
+                        <h3 class="font-bold text-slate-800 mb-2">Data Integration & ETL</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Architektura Event Driven, Data Modeling, ETL Python, Kafka/Event Mesh, Source-to-Target Mapping, CI/CD.
+                        </p>
+                    </div>
+                    <!-- Karta 2 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition border-t-4 border-t-brand-blue">
+                        <h3 class="font-bold text-slate-800 mb-2">SQL & Bazy Danych</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Oracle SQL/PL-SQL Tunning (40-75% improvement), PostgreSQL, Sybase, Data Optimization, In-Memory principles.
+                        </p>
+                    </div>
+                    <!-- Karta 3 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition border-t-4 border-t-brand-blue">
+                        <h3 class="font-bold text-slate-800 mb-2">Observability & BI</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            **OpenSearch**, Grafana, Tableau, SLI/SLO Monitoring, redukcja MTTR (60%), Proactive Alerting.
+                        </p>
+                    </div>
+                    <!-- Karta 4 -->
+                    <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition border-t-4 border-t-brand-blue">
+                        <h3 class="font-bold text-slate-800 mb-2">Domain Knowledge</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Telekomunikacja (12+ lat), Finanse/Banking, Oracle Financials, Agile/Scrum, ITIL, Zarządzanie Zmianą.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEKCJA 3: DOŚWIADCZENIE ZAWODOWE (PEŁNA OŚ CZASU CV) -->
+            <section class="p-6 sm:p-10 bg-slate-50 border-t border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+                    <svg class="icon text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.518 23.518 0 0112 15c-3.529 0-6.838-.98-9-2.745M21 13.255A23.518 23.518 0 0112 15c-3.529 0-6.838-.98-9-2.745M21 13.255A23.518 23.518 0 0012 9a23.5 23.5 0 00-9 4.255"></path></svg>
+                    Ścieżka Kariery (Pełne Doświadczenie Zawodowe)
+                </h2>
+                
+                <div class="relative pl-6">
+                    
+                    <!-- Rola 1 (Najnowsza) -->
+                    <div class="cv-item">
+                        <span class="cv-dot"></span>
+                        <h3 class="text-lg font-bold text-slate-900">CX Data & Tools Analyst</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">T-Mobile Polska | Warszawa, Polska (Hybrid)</p>
+                        <p class="text-xs text-slate-500 mb-2">Sierpień 2025 – Listopad 2025</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
+                            <li>Projektowanie interaktywnych dashboardów **Tableau** do wizualizacji kluczowych wskaźników CX.</li>
+                            <li>Zarządzanie platformą Medallia (CX management), optymalizacja przepływów danych (25% wzrost response rate).</li>
+                            <li>Automatyzacja procesów ETL za pomocą skryptów **Python** i zaawansowanych zapytań **SQL/PL-SQL** (75% wzrost wydajności raportowania).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Rola 2 -->
+                    <div class="cv-item">
+                        <span class="cv-dot"></span>
+                        <h3 class="text-lg font-bold text-slate-900">Observability Engineer | Monitoring Architect (Contract)</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">Self-employed | Remote (Klienci B2B)</p>
+                        <p class="text-xs text-slate-500 mb-2">Kwiecień 2020 – Lipiec 2025</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
+                            <li>Projektowanie architektury monitoringu danych Real-Time dla systemów ładowania (OCS) (15M+ transakcji/dzień), osiągnięcie **99.95% SLA** i **60% redukcji MTTR**.</li>
+                            <li>Budowa infrastruktury monitorowania dla mikroserwisów (PostgreSQL, MongoDB, Redis, OpenSearch).</li>
+                            <li>Tworzenie **25+ dashboardów Grafana i Kibana** z alertami SLI/SLO dla detekcji proaktywnej.</li>
+                            <li>Optymalizacja wydajności krytycznych zapytań SQL (**40-75%** poprawy czasu odpowiedzi).</li>
+                            <li>Migracja ELK Stack do **OpenSearch** z zerowym downtime.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Rola 3 -->
+                    <div class="cv-item">
+                        <span class="cv-dot past"></span>
+                        <h3 class="text-lg font-bold text-slate-900">Change Manager | SQL Developer</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">Master Care (Contract) | Warszawa, Polska</p>
+                        <p class="text-xs text-slate-500 mb-2">Czerwiec 2019 – Kwiecień 2020</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
+                            <li>Zarządzanie rozwojem i utrzymaniem systemów windykacyjnych (VINDIC) z użyciem T-SQL i PL-SQL.</li>
+                            <li>Koordynacja zmian dla systemów WINKOM i KIWI (Factoring), zapewnienie zgodności danych.</li>
+                            <li>Optymalizacja procedur PL-SQL w systemie bilingowym BSCS (35% poprawa wydajności batch job).</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Rola 4 -->
+                    <div class="cv-item">
+                        <span class="cv-dot past"></span>
+                        <h3 class="text-lg font-bold text-slate-900">Change Manager</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">Hays (Contract for T-Mobile Poland) | Warszawa, Polska</p>
+                        <p class="text-xs text-slate-500 mb-2">Czerwiec 2018 – Czerwiec 2019</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
+                            <li>Prowadzenie zarządzania zmianą dla systemów WINKOM i KIWI, koordynacja wdrożeń (20+ release'ów) zgodnie z ITIL.</li>
+                            <li>Przygotowanie dokumentacji zmian, oceny ryzyka i procedur rollback.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Rola 5 -->
+                    <div class="cv-item">
+                        <span class="cv-dot past"></span>
+                        <h3 class="text-lg font-bold text-slate-900">Senior Specialist - Database Administration & IT Projects</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">Orange Polska | Warszawa, Polska (On-site)</p>
+                        <p class="text-xs text-slate-500 mb-2">Czerwiec 2005 – Maj 2017</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
+                            <li>Administracja bazami **Oracle i Sybase** (2M+ klientów), utrzymanie **99.9% dostępności** przez 12 lat.</li>
+                            <li>Zarządzanie systemem autoryzacji DSL (Neostrada+), planowanie pojemności.</li>
+                            <li>Prowadzenie projektów IT/biznesowych w międzynarodowych zespołach (France Telecom Group).</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Rola 6 -->
+                    <div class="cv-item">
+                        <span class="cv-dot past"></span>
+                        <h3 class="text-lg font-bold text-slate-900">Oracle Financial Specialist | Sybase Database Specialist</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">TP Internet Sp. z o.o. | Warszawa, Polska (On-site)</p>
+                        <p class="text-xs text-slate-500 mb-2">Lipiec 2000 – Maj 2005</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
+                            <li>Projektowanie raportów finansowych przy użyciu **Oracle Reports** (GL, AP, AR), automatyzacja miesięcznego zamknięcia (50% redukcja czasu).</li>
+                            <li>Administracja bazami **Sybase** (Neostrada+), replikacja, tuning i monitoring 24/7.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Rola 7 (Wczesna Kariera) -->
+                    <div class="cv-item">
+                        <span class="cv-dot past"></span>
+                        <h3 class="text-lg font-bold text-slate-900">Earlier Career - IT Implementation Specialist & Automation Engineer</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">Różne Organizacje</p>
+                        <p class="text-xs text-slate-500 mb-2">1992 – 2000</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
+                            <li>Wdrożenia systemów HR, finansowych i bilingowych na platformie **Oracle Database** (1996-2000).</li>
+                            <li>Konfiguracja systemów **SCADA** i wdrożenia systemów automatyki stacyjnej (SAS) w stacjach elektroenergetycznych (1992-1996).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-brand-dark text-slate-400 p-8 text-center text-sm border-t border-slate-800">
+            <p class="mb-2 font-semibold text-white">LR SYSTEMS JANUSZ LEŚNIEWICZ</p>
+            <p class="mb-4">NIP: 554-104-20-30 | 20+ lat doświadczenia w IT</p>
+            <p class="text-xs text-slate-600">© 2025 Wszelkie prawa zastrzeżone.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
