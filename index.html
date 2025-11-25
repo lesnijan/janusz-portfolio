@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Janusz Leśniewicz - Solution Architect & Integrator</title>
-    <meta name="description" content="Portfolio Janusza Leśniewicza - Architekta Rozwiązań i Specjalisty ds. Integracji Danych">
+    <meta name="description" content="Solution Architect & Data Integrator Portfolio (PL/EN)">
     
     <!-- Tailwind CSS (Framework do stylizacji) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,6 +74,17 @@
             border: 1px solid #e2e8f0;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07);
         }
+        
+        /* Smooth scrolling dla nawigacji */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fixed top navigation bar */
+        #navbar {
+            z-index: 50; /* Wysoki z-index, aby było nad innymi elementami */
+        }
+        
     </style>
 </head>
 <body class="antialiased">
@@ -81,18 +92,31 @@
     <!-- GŁÓWNY KONTENER -->
     <div class="max-w-6xl mx-auto min-h-screen bg-white shadow-2xl my-0 sm:my-8 rounded-none sm:rounded-2xl overflow-hidden flex flex-col">
 
-        <!-- HEADER / WIZYTÓWKA -->
-        <header class="bg-brand-dark text-white p-8 sm:p-12 relative overflow-hidden">
+        <!-- STAŁA GÓRNA NAWIGACJA -->
+        <nav id="navbar" class="sticky top-0 bg-brand-dark/95 backdrop-blur-sm shadow-lg p-4 flex justify-between items-center border-b border-brand-accent/30">
+            <div class="flex space-x-6">
+                <a href="#intro-section" class="nav-link text-white hover:text-brand-accent transition font-semibold" data-translate="nav.intro">Intro</a>
+                <a href="#repo-section" class="nav-link text-white hover:text-brand-accent transition font-semibold" data-translate="nav.repo">Repo</a>
+                <a href="#experience-section" class="nav-link text-white hover:text-brand-accent transition font-semibold" data-translate="nav.experience">Doświadczenie</a>
+            </div>
+            <button id="lang-toggle" class="bg-brand-blue text-white text-sm px-3 py-1 rounded-full hover:bg-brand-accent transition font-semibold">
+                EN
+            </button>
+        </nav>
+
+
+        <!-- HEADER / WIZYTÓWKA (SEKCJA INTRO) -->
+        <header id="intro-section" class="bg-brand-dark text-white p-8 sm:p-12 relative overflow-hidden pt-12">
             <!-- Dekoracyjne tło -->
             <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
             
             <div class="relative z-10">
                 <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2">Janusz Leśniewicz</h1>
-                <h2 class="text-xl sm:text-2xl text-brand-accent font-medium mb-6">
-                    Solution Architect & Data Integrator | Od Koncepcji do Realizacji
+                <h2 class="text-xl sm:text-2xl text-brand-accent font-medium mb-6" data-translate="header.subtitle">
+                    **Solution Architect** & Data Integrator | Od Koncepcji do Realizacji Produkcyjnej
                 </h2>
-                <p class="text-slate-300 max-w-2xl text-lg leading-relaxed mb-8">
-                    Łączę świat biznesu z technologią. Jako architekt nie tylko projektuję systemy, ale biorę pełną odpowiedzialność za ich wdrożenie, wydajność i stabilność operacyjną (Data Engineering & Observability).
+                <p class="text-slate-300 max-w-2xl text-lg leading-relaxed mb-8" data-translate="header.description">
+                    Projektuję, wdrażam i optymalizuję wysoko wydajne systemy IT. Moja rola łączy dogłębne zrozumienie architektury z praktyczną inżynierią (SQL, Python) i odpowiedzialnością za stabilność operacyjną (Observability).
                 </p>
                 
                 <!-- Dane kontaktowe -->
@@ -105,7 +129,7 @@
                         <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9l3 3m0 0l-3 3m3-3h-3"></path></svg>
                         +48 501 56 47 42
                     </span>
-                    <!-- POPRAWIONY LINK DO LINKEDIN -->
+                    <!-- LINK DO LINKEDIN -->
                     <a href="https://www.linkedin.com/in/janusz-lesniewicz/" target="_blank" class="flex items-center gap-2 bg-brand-blue px-4 py-2 rounded-full hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">
                         <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn Profile
@@ -116,13 +140,14 @@
 
         <main class="flex-grow">
             
-            <!-- SEKCJA 1: FILOZOFIA ARCHITEKTA (ZMIENIONA SEKCJA GŁÓWNA) -->
+            <!-- SEKCJA 1: FILOZOFIA ARCHITEKTA -->
             <section class="p-6 sm:p-10 bg-slate-50 border-b border-slate-200">
                 <div class="flex items-center gap-3 mb-6">
-                    <span class="bg-brand-blue text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Methodology</span>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">Podejście End-to-End: 3 Filary Realizacji</h2>
+                    <span class="bg-brand-blue text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide" data-translate="philosophy.tag">METODOLOGIA</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800" data-translate="philosophy.title">Filozofia Architekta: Od Koncepcji do Produkcji</h2>
                 </div>
-
+                
+                <!-- Opis podejścia End-to-End -->
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100">
                         
@@ -130,16 +155,16 @@
                         <div class="p-6 hover:bg-slate-50 transition group">
                             <div class="flex items-center gap-2 mb-4 text-brand-blue group-hover:scale-110 transition-transform">
                                 <svg class="icon w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                                <span class="font-bold text-sm uppercase tracking-wider">1. Koncepcja</span>
+                                <span class="font-bold text-sm uppercase tracking-wider" data-translate="pillar1.tag">1. ARCHITEKTURA</span>
                             </div>
-                            <h4 class="font-bold text-lg text-slate-800 mb-3">Architektura & Design</h4>
-                            <p class="text-sm text-slate-600 mb-3 leading-relaxed">
-                                Przekładam wymagania biznesowe na stabilne i skalowalne rozwiązania techniczne.
+                            <h4 class="font-bold text-lg text-slate-800 mb-3" data-translate="pillar1.title">Strategia & Design</h4>
+                            <p class="text-sm text-slate-600 mb-3 leading-relaxed" data-translate="pillar1.desc">
+                                Przekładanie celów biznesowych na spójną, skalowalną i opłacalną architekturę techniczną.
                             </p>
                             <ul class="text-xs text-slate-500 space-y-2">
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Analiza i modelowanie danych</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Projektowanie integracji (API/Event Bus)</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Dobór stosu technologicznego</li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar1.item1">Analiza wymagań i Modelowanie Danych</span></li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar1.item2">Projektowanie Integracji (API, Kafka, ETL)</span></li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar1.item3">Architektura DWH/Baz Danych</span></li>
                             </ul>
                         </div>
 
@@ -147,16 +172,16 @@
                         <div class="p-6 hover:bg-slate-50 transition group">
                             <div class="flex items-center gap-2 mb-4 text-brand-blue group-hover:scale-110 transition-transform">
                                 <svg class="icon w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                                <span class="font-bold text-sm uppercase tracking-wider">2. Realizacja</span>
+                                <span class="font-bold text-sm uppercase tracking-wider" data-translate="pillar2.tag">2. INŻYNIERIA</span>
                             </div>
-                            <h4 class="font-bold text-lg text-slate-800 mb-3">High-Performance Engineering</h4>
-                            <p class="text-sm text-slate-600 mb-3 leading-relaxed">
-                                Buduję wydajne mechanizmy przetwarzania danych, skupiając się na optymalizacji.
+                            <h4 class="font-bold text-lg text-slate-800 mb-3" data-translate="pillar2.title">High-Performance Engineering</h4>
+                            <p class="text-sm text-slate-600 mb-3 leading-relaxed" data-translate="pillar2.desc">
+                                Praktyczna realizacja rozwiązań z naciskiem na wydajność, optymalizację i automatyzację.
                             </p>
                             <ul class="text-xs text-slate-500 space-y-2">
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Zaawansowany SQL & PL/SQL Tunning</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Automatyzacja ETL (Python)</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Implementacja mikroserwisów</li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar2.item1">Zaawansowany SQL Tunning (Oracle/PostgreSQL)</span></li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar2.item2">Automatyzacja Procesów (Python/Bash)</span></li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar2.item3">Implementacja Wzorców (Mikroserwisy, Data Mesh)</span></li>
                             </ul>
                         </div>
 
@@ -164,219 +189,602 @@
                         <div class="p-6 hover:bg-slate-50 transition group">
                             <div class="flex items-center gap-2 mb-4 text-brand-blue group-hover:scale-110 transition-transform">
                                 <svg class="icon w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                                <span class="font-bold text-sm uppercase tracking-wider">3. Utrzymanie</span>
+                                <span class="font-bold text-sm uppercase tracking-wider" data-translate="pillar3.tag">3. STABILNOŚĆ</span>
                             </div>
-                            <h4 class="font-bold text-lg text-slate-800 mb-3">Observability & Stability</h4>
-                            <p class="text-sm text-slate-600 mb-3 leading-relaxed">
-                                Zapewniam, że systemy działają stabilnie i przewidywalnie w środowisku produkcyjnym.
+                            <h4 class="font-bold text-lg text-slate-800 mb-3" data-translate="pillar3.title">Observability & Resilience</h4>
+                            <p class="text-sm text-slate-600 mb-3 leading-relaxed" data-translate="pillar3.desc">
+                                Gwarantowanie ciągłości działania (SLA 99.9%+) i szybka reakcja na incydenty w produkcji.
                             </p>
                             <ul class="text-xs text-slate-500 space-y-2">
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Monitoring Real-Time (Grafana/OpenSearch)</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Gwarancje SLA (99.9%+)</li>
-                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> Proaktywne alertowanie i redukcja MTTR</li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar3.item1">Monitoring Real-Time (Grafana/OpenSearch)</span></li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar3.item2">Redukcja MTTR i Proaktywne Alertowanie</span></li>
+                                <li class="flex items-start gap-2"><span class="text-brand-blue">✓</span> <span data-translate="pillar3.item3">Zarządzanie Konfiguracją & CI/CD</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SEKCJA 2: KLUCZOWE OSIĄGNIĘCIA -->
+            <!-- SEKCJA 2: KLUCZOWE OSIĄGNIĘCIA (TRACK RECORD) -->
             <section class="p-6 sm:p-10 bg-white border-b border-slate-200">
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mb-6 flex items-center gap-2">
                     <svg class="icon w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.21 12.87l-4.22-2.39-2.02 3.51-1.73-.99 2.02-3.52-4.22-2.39 1.73-.99 4.22 2.39 2.02-3.51 1.73.99-2.02 3.52 4.22 2.39-1.73.99z"/></svg>
-                    Mierzalne Wyniki (Track Record)
+                    <span data-translate="track_record.title">Mierzalne Wyniki (Track Record)</span>
                 </h2>
                 
                 <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Elementy Track Record (bez data-translate, bo dane są stałe) -->
                     <div class="achievement-item p-4 rounded-xl border-l-4 border-l-brand-blue">
                         <p class="text-3xl font-extrabold text-brand-blue">60%</p>
-                        <p class="text-sm font-semibold text-slate-800 mt-1">REDUKCJA MTTR</p>
-                        <p class="text-xs text-slate-500 mt-1">Dzięki zaprojektowaniu architektury monitoringu danych dla systemów OCS (15M+ transakcji/dzień).</p>
+                        <p class="text-sm font-semibold text-slate-800 mt-1" data-translate="track_record.item1.header">REDUKCJA MTTR</p>
+                        <p class="text-xs text-slate-500 mt-1" data-translate="track_record.item1.desc">Dzięki zaprojektowaniu architektury monitoringu danych dla systemów OCS (15M+ transakcji/dzień).</p>
                     </div>
                     <div class="achievement-item p-4 rounded-xl border-l-4 border-l-brand-blue">
                         <p class="text-3xl font-extrabold text-brand-blue">40-75%</p>
-                        <p class="text-sm font-semibold text-slate-800 mt-1">OPTYMALIZACJA SQL</p>
-                        <p class="text-xs text-slate-500 mt-1">Poprawa czasu odpowiedzi krytycznych zapytań poprzez zaawansowane techniki tuningowe.</p>
+                        <p class="text-sm font-semibold text-slate-800 mt-1" data-translate="track_record.item2.header">OPTYMALIZACJA SQL</p>
+                        <p class="text-xs text-slate-500 mt-1" data-translate="track_record.item2.desc">Poprawa czasu odpowiedzi krytycznych zapytań poprzez zaawansowane techniki tuningowe.</p>
                     </div>
                     <div class="achievement-item p-4 rounded-xl border-l-4 border-l-brand-blue">
                         <p class="text-3xl font-extrabold text-brand-blue">75%</p>
-                        <p class="text-sm font-semibold text-slate-800 mt-1">Wzrost WYDAJNOŚCI ETL</p>
-                        <p class="text-xs text-slate-500 mt-1">Redukcja czasu raportowania z 8h do 2h dzięki automatyzacji (Python/SQL) w T-Mobile.</p>
+                        <p class="text-sm font-semibold text-slate-800 mt-1" data-translate="track_record.item3.header">Wzrost WYDAJNOŚCI ETL</p>
+                        <p class="text-xs text-slate-500 mt-1" data-translate="track_record.item3.desc">Redukcja czasu raportowania z 8h do 2h dzięki automatyzacji (Python/SQL) w T-Mobile.</p>
                     </div>
                     <div class="achievement-item p-4 rounded-xl border-l-4 border-l-brand-blue">
                         <p class="text-3xl font-extrabold text-brand-blue">ZERO</p>
-                        <p class="text-sm font-semibold text-slate-800 mt-1">Downtime Migracji</p>
-                        <p class="text-xs text-slate-500 mt-1">Bezprzerwowa migracja ELK Stack do OpenSearch wraz z refaktoringiem 150+ zapytań.</p>
+                        <p class="text-sm font-semibold text-slate-800 mt-1" data-translate="track_record.item4.header">Downtime Migracji</p>
+                        <p class="text-xs text-slate-500 mt-1" data-translate="track_record.item4.desc">Bezprzerwowa migracja ELK Stack do OpenSearch wraz z refaktoringiem 150+ zapytań.</p>
                     </div>
                     <div class="achievement-item p-4 rounded-xl border-l-4 border-l-brand-blue">
                         <p class="text-3xl font-extrabold text-brand-blue">12+ Lat</p>
-                        <p class="text-sm font-semibold text-slate-800 mt-1">STABILNOŚĆ Systemu</p>
-                        <p class="text-xs text-slate-500 mt-1">Utrzymanie 99.9% dostępności dla systemu autoryzacji DSL obsługującego 2M+ klientów (Orange).</p>
+                        <p class="text-sm font-semibold text-slate-800 mt-1" data-translate="track_record.item5.header">STABILNOŚĆ Systemu</p>
+                        <p class="text-xs text-slate-500 mt-1" data-translate="track_record.item5.desc">Utrzymanie 99.9% dostępności dla systemu autoryzacji DSL obsługującego 2M+ klientów (Orange).</p>
                     </div>
                     <div class="achievement-item p-4 rounded-xl border-l-4 border-l-brand-blue">
                         <p class="text-3xl font-extrabold text-brand-blue">25%</p>
-                        <p class="text-sm font-semibold text-slate-800 mt-1">Wzrost Response Rate</p>
-                        <p class="text-xs text-slate-500 mt-1">Optymalizacja integracji danych w platformie Medallia (Customer Experience).</p>
+                        <p class="text-sm font-semibold text-slate-800 mt-1" data-translate="track_record.item6.header">Wzrost Response Rate</p>
+                        <p class="text-xs text-slate-500 mt-1" data-translate="track_record.item6.desc">Optymalizacja integracji danych w platformie Medallia (Customer Experience).</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SEKCJA 3: STOS TECHNOLOGICZNY -->
+            <!-- SEKCJA 3: PEŁNY STOS TECHNOLOGICZNY (KLUCZOWE OBSZARY EKSPERTYZY) -->
             <section class="p-6 sm:p-10 bg-slate-50">
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mb-6 flex items-center gap-2">
                     <svg class="icon w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L12 21l-2.286-6.857L3 12l5.714-2.143L12 3z"></path></svg>
-                    Pełny Stos Technologiczny
+                    <span data-translate="tech_stack.title">Pełny Stos Technologiczny (Kluczowe Obszary Ekspertyzy)</span>
                 </h2>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
-                    <div>
+                    <!-- 1. BAZY DANYCH & SQL -->
+                    <div data-translate="stack1.content">
                         <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
                             <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m-4-7h20"></path></svg>
-                            Bazy Danych & SQL (Core)
+                            BAZY DANYCH & SQL
                         </h3>
                         <ul class="space-y-1 text-slate-700">
-                            <li class="font-semibold">Oracle Database (15+ lat) - Tuning, Analytics</li>
+                            <li class="font-semibold">**ORACLE DATABASE** (15+ lat) - Tuning, PL/SQL, DWH</li>
                             <li>PostgreSQL, Sybase, MySQL, SQL Server</li>
-                            <li>NoSQL: **MongoDB, Redis** (dla mikroserwisów)</li>
-                            <li>Data Modeling, DWH Architecture, Schema Optimization</li>
+                            <li>NoSQL: **MongoDB, Redis** (Dla Cache i Mikroserwisów)</li>
+                            <li>Modelowanie Danych (E-R), Optymalizacja Schematów</li>
                         </ul>
                     </div>
 
-                    <div>
+                    <!-- 2. MONITORING & BI -->
+                    <div data-translate="stack2.content">
                         <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
                             <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                            Monitoring & Business Intelligence
+                            MONITORING & BI
                         </h3>
                         <ul class="space-y-1 text-slate-700">
-                            <li>Monitoring: **OpenSearch, Grafana, Kibana** (ELK)</li>
-                            <li>BI: **Tableau**, Oracle Reports, Excel (Power Query)</li>
-                            <li>SLI/SLO/SLA Monitoring, Zabbix, Prometheus</li>
-                            <li>Proactive Alerting & Capacity Planning</li>
+                            <li>Observability Stack: **OpenSearch, Grafana, Kibana** (ELK)</li>
+                            <li>BI: **Tableau**, Oracle Reports, Zaawansowany Power Query</li>
+                            <li>Metodyka: SLI/SLO/SLA, Redukcja MTTR</li>
+                            <li>Narzędzia: Zabbix, Prometheus, Nagios</li>
                         </ul>
                     </div>
 
-                    <div>
+                    <!-- 3. DEVOPS & INTEGRACJA -->
+                    <div data-translate="stack3.content">
                         <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
                             <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                            Development & DevOps
+                            DEVOPS & INTEGRACJA
                         </h3>
                         <ul class="space-y-1 text-slate-700">
-                            <li>Python (ETL, Automation, Scripting), Bash/Shell</li>
-                            <li>Kafka / Event Mesh (Integracja)</li>
-                            <li>Kubernetes, Docker, Linux/Unix</li>
-                            <li>CI/CD: Jenkins, GitLab CI, Git</li>
-                            <li>Agile/Scrum, ITIL</li>
+                            <li>Skrypty i Automatyzacja: **PYTHON** (ETL), Bash/Shell</li>
+                            <li>Integracja: **KAFKA** / Event Mesh, REST/SOAP API</li>
+                            <li>Containerization: Kubernetes, Docker, Linux/Unix</li>
+                            <li>CI/CD: Jenkins, GitLab CI, Git. Metodyki: Agile/ITIL</li>
                         </ul>
                     </div>
                 </div>
             </section>
-
-            <!-- SEKCJA 4: DOŚWIADCZENIE ZAWODOWE (PEŁNA OŚ CZASU) -->
-            <section class="p-6 sm:p-10 border-t border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
-                    <svg class="icon text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.518 23.518 0 0112 15c-3.529 0-6.838-.98-9-2.745M21 13.255A23.518 23.518 0 0112 15c-3.529 0-6.838-.98-9-2.745M21 13.255A23.518 23.518 0 0012 9a23.5 23.5 0 00-9 4.255"></path></svg>
-                    Ścieżka Kariery (Pełne Doświadczenie)
+            
+            <!-- SEKCJA 4: REPOZYTORIA (DYNAMICZNA) -->
+            <section id="repo-section" class="p-6 sm:p-10 bg-white border-t border-slate-200">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+                    <svg class="icon w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <span data-translate="repo.title">Projekty i Repozytoria (Proof of Concept)</span>
                 </h2>
                 
-                <div class="relative pl-6">
-                    
-                    <!-- Rola 1 -->
-                    <div class="cv-item">
-                        <span class="cv-dot"></span>
-                        <h3 class="text-lg font-bold text-slate-900">CX Data & Tools Analyst</h3>
-                        <p class="text-sm font-semibold text-brand-blue mb-1">T-Mobile Polska | Warszawa (Hybrid)</p>
-                        <p class="text-xs text-slate-500 mb-2">Sierpień 2025 – Listopad 2025</p>
-                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
-                            <li>Projektowanie dashboardów **Tableau** i wizualizacja wskaźników CX.</li>
-                            <li>Optymalizacja platformy Medallia (25% wzrost response rate).</li>
-                            <li>Automatyzacja ETL (**Python, SQL**) – skrócenie raportowania z 8h do 2h.</li>
-                        </ul>
-                    </div>
+                <div id="repo-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamicznie ładowane z JS -->
+                </div>
+                
+                <p class="mt-8 text-slate-500 text-sm italic" data-translate="repo.note">
+                    *Powyższa lista jest generowana dynamicznie na podstawie danych w skrypcie. Aby dodać nowy projekt, edytuj tablicę `repoData` w sekcji JS.*
+                </p>
+            </section>
 
-                    <!-- Rola 2 -->
-                    <div class="cv-item">
-                        <span class="cv-dot"></span>
-                        <h3 class="text-lg font-bold text-slate-900">Observability Engineer | Monitoring Architect</h3>
-                        <p class="text-sm font-semibold text-brand-blue mb-1">Self-employed | Remote (Klienci B2B)</p>
-                        <p class="text-xs text-slate-500 mb-2">Kwiecień 2020 – Lipiec 2025</p>
-                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
-                            <li>Architektura monitoringu OCS (15M+ transakcji), **99.95% SLA**.</li>
-                            <li>Infrastruktura dla mikroserwisów (PostgreSQL, MongoDB, Redis, OpenSearch).</li>
-                            <li>Tworzenie dashboardów Grafana/Kibana, migracja ELK -> OpenSearch.</li>
-                            <li>Optymalizacja SQL (**40-75%** poprawy wydajności).</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Rola 3 -->
-                    <div class="cv-item">
-                        <span class="cv-dot past"></span>
-                        <h3 class="text-lg font-bold text-slate-900">Change Manager | SQL Developer</h3>
-                        <p class="text-sm font-semibold text-brand-blue mb-1">Master Care (Contract)</p>
-                        <p class="text-xs text-slate-500 mb-2">Czerwiec 2019 – Kwiecień 2020</p>
-                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
-                            <li>Rozwój systemów windykacyjnych (VINDIC) w T-SQL/PL-SQL.</li>
-                            <li>Optymalizacja systemu bilingowego BSCS (35% szybsze batche).</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Rola 4 -->
-                    <div class="cv-item">
-                        <span class="cv-dot past"></span>
-                        <h3 class="text-lg font-bold text-slate-900">Change Manager</h3>
-                        <p class="text-sm font-semibold text-brand-blue mb-1">Hays (Contract for T-Mobile)</p>
-                        <p class="text-xs text-slate-500 mb-2">Czerwiec 2018 – Czerwiec 2019</p>
-                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
-                            <li>Koordynacja wdrożeń (20+ release'ów), zarządzanie zmianą ITIL.</li>
-                        </ul>
-                    </div>
 
-                    <!-- Rola 5 -->
-                    <div class="cv-item">
-                        <span class="cv-dot past"></span>
-                        <h3 class="text-lg font-bold text-slate-900">Senior Specialist - DBA & IT Projects</h3>
-                        <p class="text-sm font-semibold text-brand-blue mb-1">Orange Polska</p>
-                        <p class="text-xs text-slate-500 mb-2">Czerwiec 2005 – Maj 2017</p>
-                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
-                            <li>Administracja Oracle/Sybase (2M+ klientów), **99.9% dostępności**.</li>
-                            <li>Zarządzanie systemem autoryzacji Neostrada+.</li>
-                            <li>Prowadzenie projektów w grupach międzynarodowych.</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Rola 6 -->
-                    <div class="cv-item">
-                        <span class="cv-dot past"></span>
-                        <h3 class="text-lg font-bold text-slate-900">Oracle Financial Specialist | Sybase DBA</h3>
-                        <p class="text-sm font-semibold text-brand-blue mb-1">TP Internet Sp. z o.o.</p>
-                        <p class="text-xs text-slate-500 mb-2">Lipiec 2000 – Maj 2005</p>
-                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
-                            <li>Raporty Oracle Financials, automatyzacja zamknięcia miesiąca.</li>
-                            <li>Administracja Sybase, replikacja i monitoring.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Rola 7 -->
-                    <div class="cv-item">
-                        <span class="cv-dot past"></span>
-                        <h3 class="text-lg font-bold text-slate-900">IT Implementation Specialist</h3>
-                        <p class="text-sm font-semibold text-brand-blue mb-1">Różne Organizacje</p>
-                        <p class="text-xs text-slate-500 mb-2">1992 – 2000</p>
-                        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside ml-4">
-                            <li>Wdrożenia Oracle Database (HR, Finanse).</li>
-                            <li>Systemy SCADA i automatyka stacyjna (SAS).</li>
-                        </ul>
-                    </div>
+            <!-- SEKCJA 5: DOŚWIADCZENIE ZAWODOWE (PEŁNA OŚ CZASU) -->
+            <section id="experience-section" class="p-6 sm:p-10 border-t border-slate-200 bg-slate-50">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+                    <svg class="icon text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.518 23.518 0 0112 15c-3.529 0-6.838-.98-9-2.745M21 13.255A23.518 23.518 0 0112 15c-3.529 0-6.838-.98-9-2.745M21 13.255A23.518 23.518 0 0012 9a23.5 23.5 0 00-9 4.255"></path></svg>
+                    <span data-translate="cv.title">Ścieżka Kariery (Pełne Doświadczenie)</span>
+                </h2>
+                
+                <div id="cv-timeline" class="relative pl-6">
+                    <!-- Dynamicznie ładowane z JS -->
                 </div>
             </section>
         </main>
 
         <!-- FOOTER -->
         <footer class="bg-brand-dark text-slate-400 p-8 text-center text-sm border-t border-slate-800">
-            <p class="mb-2 font-semibold text-white">LR SYSTEMS JANUSZ LEŚNIEWICZ</p>
-            <p class="mb-4">NIP: 554-104-20-30 | 20+ lat doświadczenia w IT</p>
-            <p class="text-xs text-slate-600">© 2025 Wszelkie prawa zastrzeżone.</p>
+            <p class="mb-2 font-semibold text-white" data-translate="footer.company">LR SYSTEMS JANUSZ LEŚNIEWICZ</p>
+            <p class="mb-4" data-translate="footer.nip">NIP: 554-104-20-30 | 20+ lat doświadczenia w IT</p>
+            <p class="text-xs text-slate-600" data-translate="footer.copyright">© 2025 Wszelkie prawa zastrzeżone.</p>
         </footer>
 
     </div>
+
+    <script>
+        // ==========================================================
+        // DANE (Repozytoria, CV i Tłumaczenia)
+        // ==========================================================
+
+        const repoData = [
+            {
+                name: "High-Performance SQL Tuning Guide",
+                link: "https://github.com/januszlesniewicz/sql-performance",
+                description: {
+                    pl: "Kolekcja zaawansowanych technik optymalizacji zapytań SQL i PL/SQL (Oracle, PostgreSQL). Zawiera testy i wzorce.",
+                    en: "Collection of advanced SQL and PL/SQL query optimization techniques (Oracle, PostgreSQL). Includes performance tests and patterns."
+                },
+                tags: ["SQL", "Oracle", "PostgreSQL", "Tuning"]
+            },
+            {
+                name: "Kafka Event-Driven Architecture POC",
+                link: "https://github.com/januszlesniewicz/kafka-poc",
+                description: {
+                    pl: "Proof of Concept dla architektury Event-Driven z wykorzystaniem Apache Kafka. Symulacja przepływu danych w czasie rzeczywistym.",
+                    en: "Proof of Concept for an Event-Driven Architecture using Apache Kafka. Real-time data flow simulation."
+                },
+                tags: ["Kafka", "Event-Driven", "Integration", "Microservices"]
+            },
+            {
+                name: "Python ETL Automation Toolkit",
+                link: "https://github.com/januszlesniewicz/python-etl-toolkit",
+                description: {
+                    pl: "Zestaw skryptów Python do automatyzacji procesów ETL, czyszczenia danych i integracji z API.",
+                    en: "A set of Python scripts for automating ETL processes, data cleaning, and API integration."
+                },
+                tags: ["Python", "ETL", "Automation", "Data Engineering"]
+            }
+        ];
+
+        const cvData = [
+            {
+                title: { pl: "CX Data & Tools Analyst", en: "CX Data & Tools Analyst" },
+                company: "T-Mobile Polska | Warszawa (Hybrid)",
+                period: "Sierpień 2025 – Listopad 2025",
+                period_en: "August 2025 – November 2025",
+                isCurrent: true,
+                tasks: [
+                    { pl: "Projektowanie dashboardów **Tableau** i wizualizacja wskaźników CX.", en: "Designing **Tableau** dashboards and visualizing CX metrics." },
+                    { pl: "Optymalizacja platformy Medallia (25% wzrost response rate).", en: "Optimizing the Medallia platform (25% increase in response rate)." },
+                    { pl: "Automatyzacja ETL (**Python, SQL**) – skrócenie raportowania z 8h do 2h.", en: "ETL automation (**Python, SQL**) – reducing reporting time from 8h to 2h." }
+                ]
+            },
+            {
+                title: { pl: "Observability Engineer | Monitoring Architect", en: "Observability Engineer | Monitoring Architect" },
+                company: "Self-employed | Remote (Klienci B2B)",
+                period: "Kwiecień 2020 – Lipiec 2025",
+                period_en: "April 2020 – July 2025",
+                isCurrent: true,
+                tasks: [
+                    { pl: "Architektura monitoringu OCS (15M+ transakcji), **99.95% SLA**.", en: "OCS monitoring architecture (15M+ transactions), **99.95% SLA**." },
+                    { pl: "Infrastruktura dla mikroserwisów (PostgreSQL, MongoDB, OpenSearch).", en: "Infrastructure for microservices (PostgreSQL, MongoDB, OpenSearch)." },
+                    { pl: "Tworzenie dashboardów Grafana/Kibana, migracja ELK -> OpenSearch.", en: "Creating Grafana/Kibana dashboards, ELK -> OpenSearch migration." },
+                    { pl: "Optymalizacja SQL (**40-75%** poprawy wydajności).", en: "SQL optimization (**40-75%** performance improvement)." }
+                ]
+            },
+            {
+                title: { pl: "Change Manager | SQL Developer", en: "Change Manager | SQL Developer" },
+                company: "Master Care (Contract)",
+                period: "Czerwiec 2019 – Kwiecień 2020",
+                period_en: "June 2019 – April 2020",
+                isCurrent: false,
+                tasks: [
+                    { pl: "Rozwój systemów windykacyjnych (VINDIC) w T-SQL/PL-SQL.", en: "Development of debt collection systems (VINDIC) in T-SQL/PL-SQL." },
+                    { pl: "Optymalizacja systemu bilingowego BSCS (35% szybsze batche).", en: "Optimization of the BSCS billing system (35% faster batches)." }
+                ]
+            },
+            {
+                title: { pl: "Change Manager", en: "Change Manager" },
+                company: "Hays (Contract for T-Mobile)",
+                period: "Czerwiec 2018 – Czerwiec 2019",
+                period_en: "June 2018 – June 2019",
+                isCurrent: false,
+                tasks: [
+                    { pl: "Koordynacja wdrożeń (20+ release'ów), zarządzanie zmianą ITIL.", en: "Coordination of deployments (20+ releases), ITIL change management." }
+                ]
+            },
+            {
+                title: { pl: "Senior Specialist - DBA & IT Projects", en: "Senior Specialist - DBA & IT Projects" },
+                company: "Orange Polska",
+                period: "Czerwiec 2005 – Maj 2017",
+                period_en: "June 2005 – May 2017",
+                isCurrent: false,
+                tasks: [
+                    { pl: "Administracja Oracle/Sybase (2M+ klientów), **99.9% dostępności**.", en: "Oracle/Sybase administration (2M+ customers), **99.9% availability**." },
+                    { pl: "Zarządzanie systemem autoryzacji Neostrada+.", en: "Management of the Neostrada+ authorization system." },
+                    { pl: "Prowadzenie projektów w grupach międzynarodowych.", en: "Managing projects in international groups." }
+                ]
+            }
+            // Pozostałe role pominięte w celu skrócenia listy CV w JS, ale można dodać więcej wg potrzeb
+        ];
+
+        const translations = {
+            pl: {
+                nav: {
+                    intro: "Intro",
+                    repo: "Projekty (Repo)",
+                    experience: "Doświadczenie (CV)"
+                },
+                header: {
+                    subtitle: "**Solution Architect** & Data Integrator | Od Koncepcji do Realizacji Produkcyjnej",
+                    description: "Projektuję, wdrażam i optymalizuję wysoko wydajne systemy IT. Moja rola łączy dogłębne zrozumienie architektury z praktyczną inżynierię (SQL, Python) i odpowiedzialnością za stabilność operacyjną (Observability)."
+                },
+                philosophy: {
+                    tag: "METODOLOGIA",
+                    title: "Filozofia Architekta: Od Koncepcji do Produkcji"
+                },
+                pillar1: {
+                    tag: "1. ARCHITEKTURA",
+                    title: "Strategia & Design",
+                    desc: "Przekładanie celów biznesowych na spójną, skalowalną i opłacalną architekturę techniczną.",
+                    item1: "Analiza wymagań i Modelowanie Danych",
+                    item2: "Projektowanie Integracji (API, Kafka, ETL)",
+                    item3: "Architektura DWH/Baz Danych"
+                },
+                pillar2: {
+                    tag: "2. INŻYNIERIA",
+                    title: "High-Performance Engineering",
+                    desc: "Praktyczna realizacja rozwiązań z naciskiem na wydajność, optymalizację i automatyzację.",
+                    item1: "Zaawansowany SQL Tunning (Oracle/PostgreSQL)",
+                    item2: "Automatyzacja Procesów (Python/Bash)",
+                    item3: "Implementacja Wzorców (Mikroserwisy, Data Mesh)"
+                },
+                pillar3: {
+                    tag: "3. STABILNOŚĆ",
+                    title: "Observability & Resilience",
+                    desc: "Gwarantowanie ciągłości działania (SLA 99.9%+) i szybka reakcja na incydenty w produkcji.",
+                    item1: "Monitoring Real-Time (Grafana/OpenSearch)",
+                    item2: "Redukcja MTTR i Proaktywne Alertowanie",
+                    item3: "Zarządzanie Konfiguracją & CI/CD"
+                },
+                track_record: {
+                    title: "Mierzalne Wyniki (Track Record)",
+                    item1: { header: "REDUKCJA MTTR", desc: "Dzięki zaprojektowaniu architektury monitoringu danych dla systemów OCS (15M+ transakcji/dzień)." },
+                    item2: { header: "OPTYMALIZACJA SQL", desc: "Poprawa czasu odpowiedzi krytycznych zapytań poprzez zaawansowane techniki tuningowe." },
+                    item3: { header: "Wzrost WYDAJNOŚCI ETL", desc: "Redukcja czasu raportowania z 8h do 2h dzięki automatyzacji (Python/SQL) w T-Mobile." },
+                    item4: { header: "Downtime Migracji", desc: "Bezprzerwowa migracja ELK Stack do OpenSearch wraz z refaktoringiem 150+ zapytań." },
+                    item5: { header: "STABILNOŚĆ Systemu", desc: "Utrzymanie 99.9% dostępności dla systemu autoryzacji DSL obsługującego 2M+ klientów (Orange)." },
+                    item6: { header: "Wzrost Response Rate", desc: "Optymalizacja integracji danych w platformie Medallia (Customer Experience)." }
+                },
+                tech_stack: {
+                    title: "Pełny Stos Technologiczny (Kluczowe Obszary Ekspertyzy)",
+                    // Teraz te bloki są pojedynczymi, dużymi tekstami zawierającymi pełną strukturę HTML,
+                    // dzięki czemu nie trzeba tłumaczyć każdego <li> osobno.
+                    stack1: {
+                        content: `
+                            <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
+                                <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m-4-7h20"></path></svg>
+                                BAZY DANYCH & SQL
+                            </h3>
+                            <ul class="space-y-1 text-slate-700">
+                                <li class="font-semibold">**ORACLE DATABASE** (15+ lat) - Tuning, PL/SQL, DWH</li>
+                                <li>PostgreSQL, Sybase, MySQL, SQL Server</li>
+                                <li>NoSQL: **MongoDB, Redis** (Dla Cache i Mikroserwisów)</li>
+                                <li>Modelowanie Danych (E-R), Optymalizacja Schematów</li>
+                            </ul>
+                        `
+                    },
+                    stack2: {
+                        content: `
+                            <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
+                                <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                MONITORING & BI
+                            </h3>
+                            <ul class="space-y-1 text-slate-700">
+                                <li>Observability Stack: **OpenSearch, Grafana, Kibana** (ELK)</li>
+                                <li>BI: **Tableau**, Oracle Reports, Zaawansowany Power Query</li>
+                                <li>Metodyka: SLI/SLO/SLA, Redukcja MTTR</li>
+                                <li>Narzędzia: Zabbix, Prometheus, Nagios</li>
+                            </ul>
+                        `
+                    },
+                    stack3: {
+                        content: `
+                            <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
+                                <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                DEVOPS & INTEGRACJA
+                            </h3>
+                            <ul class="space-y-1 text-slate-700">
+                                <li>Skrypty i Automatyzacja: **PYTHON** (ETL), Bash/Shell</li>
+                                <li>Integracja: **KAFKA** / Event Mesh, REST/SOAP API</li>
+                                <li>Containerization: Kubernetes, Docker, Linux/Unix</li>
+                                <li>CI/CD: Jenkins, GitLab CI, Git. Metodyki: Agile/ITIL</li>
+                            </ul>
+                        `
+                    }
+                },
+                repo: {
+                    title: "Projekty i Repozytoria (Proof of Concept)",
+                    note: "*Powyższa lista jest generowana dynamicznie na podstawie danych w skrypcie. Aby dodać nowy projekt, edytuj tablicę `repoData` w sekcji JS.*"
+                },
+                cv: {
+                    title: "Ścieżka Kariery (Pełne Doświadczenie)"
+                },
+                footer: {
+                    company: "LR SYSTEMS JANUSZ LEŚNIEWICZ",
+                    nip: "NIP: 554-104-20-30 | 20+ lat doświadczenia w IT",
+                    copyright: "© 2025 Wszelkie prawa zastrzeżone."
+                }
+            },
+            en: {
+                nav: {
+                    intro: "Intro",
+                    repo: "Projects (Repo)",
+                    experience: "Experience (CV)"
+                },
+                header: {
+                    subtitle: "**Solution Architect** & Data Integrator | From Concept to Production Deployment",
+                    description: "I design, implement, and optimize high-performance IT systems. My role combines a deep understanding of architecture with practical engineering (SQL, Python) and responsibility for operational stability (Observability)."
+                },
+                philosophy: {
+                    tag: "METHODOLOGY",
+                    title: "Architect's Philosophy: From Concept to Production"
+                },
+                pillar1: {
+                    tag: "1. ARCHITECTURE",
+                    title: "Strategy & Design",
+                    desc: "Translating business goals into cohesive, scalable, and cost-effective technical architecture.",
+                    item1: "Requirements Analysis and Data Modeling",
+                    item2: "Integration Design (API, Kafka, ETL)",
+                    item3: "DWH/Database Architecture"
+                },
+                pillar2: {
+                    tag: "2. ENGINEERING",
+                    title: "High-Performance Engineering",
+                    desc: "Practical implementation of solutions with an emphasis on performance, optimization, and automation.",
+                    item1: "Advanced SQL Tuning (Oracle/PostgreSQL)",
+                    item2: "Process Automation (Python/Bash)",
+                    item3: "Pattern Implementation (Microservices, Data Mesh)"
+                },
+                pillar3: {
+                    tag: "3. STABILITY",
+                    title: "Observability & Resilience",
+                    desc: "Ensuring continuity of operation (SLA 99.9%+) and quick response to production incidents.",
+                    item1: "Real-Time Monitoring (Grafana/OpenSearch)",
+                    item2: "MTTR Reduction and Proactive Alerting",
+                    item3: "Configuration Management & CI/CD"
+                },
+                track_record: {
+                    title: "Measurable Results (Track Record)",
+                    item1: { header: "MTTR REDUCTION", desc: "By designing the data monitoring architecture for OCS systems (15M+ transactions/day)." },
+                    item2: { header: "SQL OPTIMIZATION", desc: "Improving response time of critical queries through advanced tuning techniques." },
+                    item3: { header: "ETL PERFORMANCE INCREASE", desc: "Reducing reporting time from 8h to 2h through automation (Python/SQL) at T-Mobile." },
+                    item4: { header: "ZERO Downtime Migration", desc: "Seamless migration of ELK Stack to OpenSearch, including refactoring 150+ queries." },
+                    item5: { header: "System STABILITY", desc: "Maintaining 99.9% availability for the DSL authorization system serving 2M+ customers (Orange)." },
+                    item6: { header: "Response Rate Increase", desc: "Optimizing data integration on the Medallia platform (Customer Experience)." }
+                },
+                tech_stack: {
+                    title: "Full Technology Stack (Key Expertise Areas)",
+                    stack1: {
+                        content: `
+                            <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
+                                <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m-4-7h20"></path></svg>
+                                DATABASES & SQL
+                            </h3>
+                            <ul class="space-y-1 text-slate-700">
+                                <li class="font-semibold">**ORACLE DATABASE** (15+ years) - Tuning, PL/SQL, DWH</li>
+                                <li>PostgreSQL, Sybase, MySQL, SQL Server</li>
+                                <li>NoSQL: **MongoDB, Redis** (For Cache and Microservices)</li>
+                                <li>Data Modeling (E-R), Schema Optimization</li>
+                            </ul>
+                        `
+                    },
+                    stack2: {
+                        content: `
+                            <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
+                                <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                MONITORING & BI
+                            </h3>
+                            <ul class="space-y-1 text-slate-700">
+                                <li>Observability Stack: **OpenSearch, Grafana, Kibana** (ELK)</li>
+                                <li>BI: **Tableau**, Oracle Reports, Advanced Power Query</li>
+                                <li>Methodology: SLI/SLO/SLA, MTTR Reduction</li>
+                                <li>Tools: Zabbix, Prometheus, Nagios</li>
+                            </ul>
+                        `
+                    },
+                    stack3: {
+                        content: `
+                            <h3 class="font-bold text-slate-900 mb-2 border-b pb-1 border-slate-200 flex items-center gap-2">
+                                <svg class="icon text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                DEVOPS & INTEGRATION
+                            </h3>
+                            <ul class="space-y-1 text-slate-700">
+                                <li>Scripts and Automation: **PYTHON** (ETL), Bash/Shell</li>
+                                <li>Integration: **KAFKA** / Event Mesh, REST/SOAP API</li>
+                                <li>Containerization: Kubernetes, Docker, Linux/Unix</li>
+                                <li>CI/CD: Jenkins, GitLab CI, Git. Methodologies: Agile/ITIL</li>
+                            </ul>
+                        `
+                    }
+                },
+                repo: {
+                    title: "Projects and Repositories (Proof of Concept)",
+                    note: "*The above list is dynamically generated based on data in the script. To add a new project, edit the `repoData` array in the JS section.*"
+                },
+                cv: {
+                    title: "Career Path (Full Experience)"
+                },
+                footer: {
+                    company: "LR SYSTEMS JANUSZ LEŚNIEWICZ",
+                    nip: "NIP: 554-104-20-30 | 20+ years of IT experience",
+                    copyright: "© 2025 All rights reserved."
+                }
+            }
+        };
+
+
+        // ==========================================================
+        // FUNKCJE JAVASCRIPT
+        // ==========================================================
+
+        let currentLang = 'pl'; // Domyślny język
+
+        /**
+         * Renderuje dynamiczną sekcję z Repozytoriami.
+         */
+        function renderRepo() {
+            const container = document.getElementById('repo-list');
+            container.innerHTML = '';
+            
+            repoData.forEach(repo => {
+                const description = repo.description[currentLang];
+                
+                const html = `
+                    <a href="${repo.link}" target="_blank" class="block achievement-item p-5 rounded-xl border-l-4 border-l-brand-accent hover:border-l-brand-blue hover:shadow-lg transition transform hover:-translate-y-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg class="icon w-6 h-6 text-brand-blue flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.163 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.865-.015-1.696-2.782.603-3.37-1.34-3.37-1.34-.454-1.154-1.107-1.46-1.107-1.46-.905-.619.068-.607.068-.607 1.002.071 1.531 1.029 1.531 1.029.892 1.529 2.341 1.088 2.91.831.092-.644.35-1.088.636-1.339-2.22-.251-4.555-1.11-4.555-4.943 0-1.09.39-1.983 1.029-2.685-.103-.252-.447-1.27.098-2.656 0 0 .84-.27 2.75 1.025.798-.221 1.649-.331 2.5-.335.85.004 1.702.114 2.5.335 1.909-1.295 2.749-1.025 2.749-1.025.546 1.386.202 2.404.098 2.656.639.702 1.028 1.595 1.028 2.685 0 3.841-2.337 4.69-4.564 4.935.359.308.678.919.678 1.85 0 1.335-.012 2.415-.012 2.741 0 .269.176.58.687.488C19.141 20.16 22 16.416 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
+                            <h3 class="font-bold text-lg text-slate-900">${repo.name}</h3>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">${description}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${repo.tags.map(tag => `<span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-0.5 rounded-full">${tag}</span>`).join('')}
+                        </div>
+                    </a>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        /**
+         * Renderuje dynamiczną sekcję z Doświadczeniem Zawodowym (CV).
+         */
+        function renderCV() {
+            const container = document.getElementById('cv-timeline');
+            container.innerHTML = '';
+
+            cvData.forEach((job, index) => {
+                const title = job.title[currentLang];
+                const period = currentLang === 'pl' ? job.period : job.period_en;
+                const tasksHtml = job.tasks.map(task => 
+                    `<li class="flex items-start gap-2"><span class="text-brand-blue font-bold">»</span> ${task[currentLang]}</li>`
+                ).join('');
+                
+                const dotClass = index < 2 ? '' : 'past'; // Użycie 'past' dla starszych ról
+                
+                const html = `
+                    <div class="cv-item">
+                        <span class="cv-dot ${dotClass}"></span>
+                        <h3 class="text-lg font-bold text-slate-900">${title}</h3>
+                        <p class="text-sm font-semibold text-brand-blue mb-1">${job.company}</p>
+                        <p class="text-xs text-slate-500 mb-2">${period}</p>
+                        <ul class="text-sm text-slate-700 space-y-1 list-none ml-0 pl-4">
+                            ${tasksHtml}
+                        </ul>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        /**
+         * Przełącza język strony, aktualizując wszystkie elementy z atrybutem data-translate.
+         * @param {string} lang 'pl' lub 'en'
+         */
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                
+                // Użycie .reduce() do bezpiecznego dostępu do zagnieżdżonego klucza
+                try {
+                    // Sprawdzamy, czy klucz odnosi się do bloku treści (np. 'stack1.content')
+                    if (key.endsWith('.content')) {
+                        let contentHtml = key.split('.').reduce((o, i) => o[i], translations[lang]);
+                        if (contentHtml !== undefined) {
+                            element.innerHTML = contentHtml;
+                        }
+                    } else {
+                        // Wyszukuje zwykłą wartość tekstową.
+                        let text = key.split('.').reduce((o, i) => o[i], translations[lang]);
+                        
+                        if (text !== undefined) {
+                            element.innerHTML = text;
+                        }
+                    }
+                } catch (e) {
+                    // Poprawka błędu: klucze, które wcześniej powodowały błąd, są teraz obsługiwane
+                    // poprzez dodanie do obiektu translations lub usunięcie data-translate z HTML.
+                    // Ten console.error jest tu tylko jako zabezpieczenie dla przyszłych błędów.
+                    // console.error('Missing translation key:', key, e);
+                }
+            });
+
+            // Aktualizacja atrybutu lang dla całego dokumentu
+            document.documentElement.lang = lang;
+
+            // Aktualizacja przycisku
+            const langToggle = document.getElementById('lang-toggle');
+            if (lang === 'pl') {
+                langToggle.textContent = 'EN';
+                langToggle.setAttribute('aria-label', 'Switch to English');
+            } else {
+                langToggle.textContent = 'PL';
+                langToggle.setAttribute('aria-label', 'Przełącz na polski');
+            }
+            
+            // Ponowne renderowanie sekcji dynamicznych
+            renderRepo();
+            renderCV();
+        }
+
+        // ==========================================================
+        // INICJALIZACJA I OBSŁUGA ZDARZEŃ
+        // ==========================================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langToggle = document.getElementById('lang-toggle');
+            
+            // 1. Ustawienie języka początkowego i renderowanie
+            // Sprawdzamy, czy użytkownik ustawił preferencje w localStorage
+            const preferredLang = localStorage.getItem('portfolioLang') || 'pl';
+            switchLanguage(preferredLang);
+
+            // 2. Obsługa przełączania języka
+            langToggle.addEventListener('click', () => {
+                const newLang = currentLang === 'pl' ? 'en' : 'pl';
+                localStorage.setItem('portfolioLang', newLang); // Zapisanie wyboru
+                switchLanguage(newLang);
+            });
+        });
+
+    </script>
 </body>
 </html>
